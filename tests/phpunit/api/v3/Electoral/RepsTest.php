@@ -46,7 +46,7 @@ class api_v3_Electoral_RepsTest extends \PHPUnit\Framework\TestCase implements H
    * Note how the function name begins with the word "test".
    */
   public function testApiExample() {
-    $result = civicrm_api3('Electoral', 'reps', array('magicword' => 'sesame'));
+    $result = civicrm_api3('Electoral', 'reps', ['magicword' => 'sesame']);
     $this->assertEquals('Twelve', $result['values'][12]['name']);
   }
 

@@ -63,9 +63,9 @@ function electoral_civicrm_xmlMenu(&$files) {
  *
  */
 function electoral_civicrm_navigationMenu(&$params) {
-  $path = "Administer/System Settings";
+  $path = 'Administer/System Settings';
   $item = [
-    'label' => ts('Electoral API', ['com.jlacey.electoral']),
+    'label' => E::ts('Electoral API'),
     'name' => 'Electoral API',
     'url' => 'civicrm/admin/setting/electoral',
     'permission' => 'administer CiviCRM',
@@ -74,7 +74,8 @@ function electoral_civicrm_navigationMenu(&$params) {
     'active' => 1,
   ];
 
-  $navigation = _electoral_civix_insert_navigation_menu($params, $path, $item);
+  _electoral_civix_insert_navigation_menu($params, $path, $item);
+  _electoral_civix_navigationMenu($params);
 }
 
 /**
@@ -98,6 +99,13 @@ function electoral_civicrm_install() {
   }
 
   _electoral_civix_civicrm_install();
+}
+
+/**
+ * Implementation of hook_civicrm_postInstall
+ */
+function electoral_civicrm_postInstall() {
+  _electoral_civix_civicrm_postInstall();
 }
 
 /**

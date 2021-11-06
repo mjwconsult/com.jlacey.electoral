@@ -1,5 +1,7 @@
 <?php
 
+use CRM_Electoral_ExtensionUtil as E;
+
 /*
  * Settings metadata file
  */
@@ -20,7 +22,7 @@ return [
       'class' => 'huge crm-select2',
     ],
     'pseudoconstant' => ['optionGroupName' => 'electoral_api_data_providers'],
-    'title' => ts('Data Provider(s)'),
+    'title' => E::ts('Data Provider(s)'),
   ],
   'ciceroAPIKey' => [
     'group_name' => 'Electoral API settings',
@@ -34,7 +36,7 @@ return [
     'description' => 'Cicero API Key',
     'help_text' => 'Add your registered Cicero API Key',
     'html_type' => 'text',
-    'title' => ts('Cicero API Key'),
+    'title' => E::ts('Cicero API Key'),
   ],
   'googleCivicInformationAPIKey' => [
     'group_name' => 'Electoral API settings',
@@ -48,7 +50,7 @@ return [
     'description' => 'Google Civic API Key',
     'help_text' => 'Add your registered Google Civic Information API Key',
     'html_type' => 'text',
-    'title' => ts('Google Civic Information API Key'),
+    'title' => E::ts('Google Civic Information API Key'),
   ],
   'addressLocationType' => [
     'group_name' => 'Electoral API settings',
@@ -62,7 +64,7 @@ return [
     'description' => 'Address location',
     'help_text' => 'Select the address location type to use when looking up a contact\'s districts.',
     'html_type' => 'select',
-    'title' => ts('Address location for district lookup'),
+    'title' => E::ts('Address location for district lookup'),
     'pseudoconstant' => [
       'callback' => 'CRM_Admin_Form_Setting_Electoral::getLocationTypes',
     ],
@@ -82,7 +84,7 @@ return [
       'multiple' => 1,
       'class' => 'huge crm-select2',
     ],
-    'title' => ts('Districts to Look Up'),
+    'title' => E::ts('Districts to Look Up'),
     'pseudoconstant' => ['optionGroupName' => 'electoral_districts_level_options'],
   ],
   'electoralApiNonlegislativeDistricts' => [
@@ -96,7 +98,7 @@ return [
     'is_contact' => 0,
     'description' => 'Include nonlegislative district lookups (may incur additional charges).',
     'html_type' => 'checkbox',
-    'title' => ts('Include Non-Legislative Districts'),
+    'title' => E::ts('Include Non-Legislative Districts'),
   ],
   'electoralApiIncludeRedistricted' => [
     'group_name' => 'Electoral API settings',
@@ -109,7 +111,7 @@ return [
     'is_contact' => 0,
     'description' => 'Cicero only: Include upcoming district data where available.',
     'html_type' => 'checkbox',
-    'title' => ts('Include Future Districts'),
+    'title' => E::ts('Include Future Districts'),
   ],
   'electoralApiAllCountries' => [
     'group_name' => 'Electoral API settings',
@@ -123,7 +125,7 @@ return [
     'description' => 'Include all countries in electoral district lookups',
     'help_text' => 'Include all countries in electoral district lookups',
     'html_type' => 'checkbox',
-    'title' => ts('All Countries'),
+    'title' => E::ts('All Countries'),
   ],
   'electoralApiIncludedCountries' => [
     'group_name' => 'Electoral API settings',
@@ -141,7 +143,7 @@ return [
       'multiple' => 1,
       'class' => 'huge crm-select2',
     ],
-    'title' => ts('Countries'),
+    'title' => E::ts('Countries'),
     'pseudoconstant' => [
       'callback' => 'CRM_Core_PseudoConstant::country',
     ],
@@ -158,7 +160,7 @@ return [
     'description' => 'Include all states/provinces in electoral district lookups',
     'help_text' => 'Include all states/provinces in electoral district lookups',
     'html_type' => 'checkbox',
-    'title' => ts('All States/Provinces'),
+    'title' => E::ts('All States/Provinces'),
   ],
   'includedStatesProvinces' => [
     'group_name' => 'Electoral API settings',
@@ -176,7 +178,7 @@ return [
       'multiple' => 1,
       'class' => 'huge crm-select2',
     ],
-    'title' => ts('States'),
+    'title' => E::ts('States'),
     'pseudoconstant' => [
       'callback' => 'CRM_Core_PseudoConstant::stateProvince',
     ],
@@ -193,7 +195,7 @@ return [
     'description' => 'Include all counties in electoral district lookups',
     'help_text' => 'Include all counties in electoral district lookups',
     'html_type' => 'checkbox',
-    'title' => ts('All Counties'),
+    'title' => E::ts('All Counties'),
   ],
   'includedCounties' => [
     'group_name' => 'Electoral API settings',
@@ -212,7 +214,7 @@ return [
       'class' => 'huge crm-select2',
       'data-callback' => 'civicrm/ajax/jqCounty',
     ],
-    'title' => ts('Counties'),
+    'title' => E::ts('Counties'),
   ],
   'electoralApiAllCities' => [
     'group_name' => 'Electoral API settings',
@@ -226,7 +228,7 @@ return [
     'description' => 'Include all cities in electoral district lookups',
     'help_text' => 'Include all cities in electoral district lookups',
     'html_type' => 'checkbox',
-    'title' => ts('All Cities'),
+    'title' => E::ts('All Cities'),
   ],
   'includedCities' => [
     'group_name' => 'Electoral API settings',
@@ -240,7 +242,7 @@ return [
     'description' => 'Cities included in electoral district lookups',
     'help_text' => 'Add cities, comma separated, to include in electoral district lookups',
     'html_type' => 'text',
-    'title' => ts('Cities'),
+    'title' => E::ts('Cities'),
   ],
   'electoralApiLookupOnAddressUpdate' => [
     'group_name' => 'Electoral API settings',
@@ -254,7 +256,7 @@ return [
     'description' => 'Get district data any time an address matching these criteria is added/changed.',
     'help_text' => 'Get district data any time an address matching these criteria is added/changed.',
     'html_type' => 'checkbox',
-    'title' => ts('District Lookup on Address Update'),
+    'title' => E::ts('District Lookup on Address Update'),
   ],
   'electoralApiCreateOfficialOnDistrictLookup' => [
     'group_name' => 'Electoral API settings',
@@ -268,6 +270,6 @@ return [
     'description' => 'Create a contact for the matching elected official when performing district lookups.',
     'help_text' => 'Create a contact for the matching elected official when performing district lookups.',
     'html_type' => 'checkbox',
-    'title' => ts('Create Official on District Lookup'),
+    'title' => E::ts('Create Official on District Lookup'),
   ],
 ];

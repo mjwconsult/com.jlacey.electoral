@@ -46,7 +46,7 @@ class api_v3_Electoral_DistrictsTest extends \PHPUnit\Framework\TestCase impleme
    * Note how the function name begins with the word "test".
    */
   public function testApiExample() {
-    $result = civicrm_api3('Electoral', 'districts', array('magicword' => 'sesame'));
+    $result = civicrm_api3('Electoral', 'districts', ['magicword' => 'sesame']);
     $this->assertEquals('Twelve', $result['values'][12]['name']);
   }
 
